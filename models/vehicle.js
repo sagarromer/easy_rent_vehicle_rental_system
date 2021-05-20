@@ -120,4 +120,4 @@ const vehicleSchema = new mongoose.Schema({
 
 })
 
-module.exports = mongoose.models.Vehicle || mongoose.model('Vehicle', roomSchema);
+module.exports = mongoose.models.Vehicle || mongoose.model('Vehicle', vehicleSchema);

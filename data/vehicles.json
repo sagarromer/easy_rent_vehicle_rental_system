@@ -1,0 +1,242 @@
+[
+    {
+    "name": "wagonr semona",
+    "pricePerDay": 168,
+    "description": "description",
+    "vehicleNumber": "4667 ",
+    "passengerCapacity": 1,
+    "numOfSeats": 1,
+    "internet": true,
+    "airbags": true,
+    "airConditioned": false,
+    "centralLocking": false,
+    "fogLamps": true,
+    "images": [
+        {
+        "public_id": "12",
+        "url": "https://www.google.com/"
+        },
+        {
+        "public_id": "12",
+        "url": "https://www.google.com/"
+        }
+    ],
+    "category": "Luxury"
+    },
+    {
+        "name": "wagonr semona",
+        "pricePerDay": 168,
+        "description": "description",
+        "vehicleNumber": "4667 ",
+        "passengerCapacity": 1,
+        "numOfSeats": 1,
+        "internet": true,
+        "airbags": true,
+        "airConditioned": false,
+        "centralLocking": false,
+        "fogLamps": true,
+        "images": [
+            {
+            "public_id": "12",
+            "url": "https://www.google.com/"
+            },
+            {
+            "public_id": "12",
+            "url": "https://www.google.com/"
+            }
+        ],
+        "category": "Luxury"
+        },
+        {
+            "name": "wagonr semona",
+            "pricePerDay": 168,
+            "description": "description",
+            "vehicleNumber": "4667 ",
+            "passengerCapacity": 1,
+            "numOfSeats": 1,
+            "internet": true,
+            "airbags": true,
+            "airConditioned": false,
+            "centralLocking": false,
+            "fogLamps": true,
+            "images": [
+                {
+                "public_id": "12",
+                "url": "https://www.google.com/"
+                },
+                {
+                "public_id": "12",
+                "url": "https://www.google.com/"
+                }
+            ],
+            "category": "Luxury"
+            },
+            {
+                "name": "wagonr semona",
+                "pricePerDay": 168,
+                "description": "description",
+                "vehicleNumber": "4667 ",
+                "passengerCapacity": 1,
+                "numOfSeats": 1,
+                "internet": true,
+                "airbags": true,
+                "airConditioned": false,
+                "centralLocking": false,
+                "fogLamps": true,
+                "images": [
+                    {
+                    "public_id": "12",
+                    "url": "https://www.google.com/"
+                    },
+                    {
+                    "public_id": "12",
+                    "url": "https://www.google.com/"
+                    }
+                ],
+                "category": "Luxury"
+                },
+                {
+                    "name": "wagonr semona",
+                    "pricePerDay": 168,
+                    "description": "description",
+                    "vehicleNumber": "4667 ",
+                    "passengerCapacity": 1,
+                    "numOfSeats": 1,
+                    "internet": true,
+                    "airbags": true,
+                    "airConditioned": false,
+                    "centralLocking": false,
+                    "fogLamps": true,
+                    "images": [
+                        {
+                        "public_id": "12",
+                        "url": "https://www.google.com/"
+                        },
+                        {
+                        "public_id": "12",
+                        "url": "https://www.google.com/"
+                        }
+                    ],
+                    "category": "Luxury"
+                    },
+                    {
+                        "name": "wagonr semona",
+                        "pricePerDay": 168,
+                        "description": "description",
+                        "vehicleNumber": "4667 ",
+                        "passengerCapacity": 1,
+                        "numOfSeats": 1,
+                        "internet": true,
+                        "airbags": true,
+                        "airConditioned": false,
+                        "centralLocking": false,
+                        "fogLamps": true,
+                        "images": [
+                            {
+                            "public_id": "12",
+                            "url": "https://www.google.com/"
+                            },
+                            {
+                            "public_id": "12",
+                            "url": "https://www.google.com/"
+                            }
+                        ],
+                        "category": "Luxury"
+                        },
+                        {
+                            "name": "wagonr semona",
+                            "pricePerDay": 168,
+                            "description": "description",
+                            "vehicleNumber": "4667 ",
+                            "passengerCapacity": 1,
+                            "numOfSeats": 1,
+                            "internet": true,
+                            "airbags": true,
+                            "airConditioned": false,
+                            "centralLocking": false,
+                            "fogLamps": true,
+                            "images": [
+                                {
+                                "public_id": "12",
+                                "url": "https://www.google.com/"
+                                },
+                                {
+                                "public_id": "12",
+                                "url": "https://www.google.com/"
+                                }
+                            ],
+                            "category": "Luxury"
+                            },
+                            {
+                                "name": "wagonr semona",
+                                "pricePerDay": 168,
+                                "description": "description",
+                                "vehicleNumber": "4667 ",
+                                "passengerCapacity": 1,
+                                "numOfSeats": 1,
+                                "internet": true,
+                                "airbags": true,
+                                "airConditioned": false,
+                                "centralLocking": false,
+                                "fogLamps": true,
+                                "images": [
+                                    {
+                                    "public_id": "12",
+                                    "url": "https://www.google.com/"
+                                    },
+                                    {
+                                    "public_id": "12",
+                                    "url": "https://www.google.com/"
+                                    }
+                                ],
+                                "category": "Luxury"
+                                },
+                                {
+                                    "name": "wagonr semona",
+                                    "pricePerDay": 168,
+                                    "description": "description",
+                                    "vehicleNumber": "4667 ",
+                                    "passengerCapacity": 1,
+                                    "numOfSeats": 1,
+                                    "internet": true,
+                                    "airbags": true,
+                                    "airConditioned": false,
+                                    "centralLocking": false,
+                                    "fogLamps": true,
+                                    "images": [
+                                        {
+                                        "public_id": "12",
+                                        "url": "https://www.google.com/"
+                                        },
+                                        {
+                                        "public_id": "12",
+                                        "url": "https://www.google.com/"
+                                        }
+                                    ],
+                                    "category": "Luxury"
+                                    },
+                                    {
+                                        "name": "wagonr semona",
+                                        "pricePerDay": 168,
+                                        "description": "description",
+                                        "vehicleNumber": "4667 ",
+                                        "passengerCapacity": 1,
+                                        "numOfSeats": 1,
+                                        "internet": true,
+                                        "airbags": true,
+                                        "airConditioned": false,
+                                        "centralLocking": false,
+                                        "fogLamps": true,
+                                        "images": [
+                                            {
+                                            "public_id": "12",
+                                            "url": "https://www.google.com/"
+                                            },
+                                            {
+                                            "public_id": "12",
+                                            "url": "https://www.google.com/"
+                                            }
+                                        ],
+                                        "category": "Luxury"
+                                        }
+] 
