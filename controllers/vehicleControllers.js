@@ -17,6 +17,28 @@ const allVehicles = async (req, res) => {
     }
 
 }
+// get vehicle details   =>   /api/vehicles/:id
+const getSingleVehicle = async (req, res) => {
+    try{
+        const vehicle = await Vehicle.findById(req.query.id);
+        if(!vehicle){
+            return res.status(404).json({
+                success: false,
+                room: 'vehicle not found with this ID'
+            })
+        }
+        res.status(200).json({
+            success: true,
+            vehicle
+        })
+
+    } catch(error){
+        res.status(400).json({
+            success: true,
+            error: error.message
+        })
+    }
+}
 // Create new vehicle   =>   /api/vehicles
 const newVehicle = async (req, res) => {
     try{
@@ -36,5 +58,6 @@ const newVehicle = async (req, res) => {
 }
 export {
     allVehicles,
-    newVehicle
+    newVehicle,
+    getSingleVehicle
 } 
