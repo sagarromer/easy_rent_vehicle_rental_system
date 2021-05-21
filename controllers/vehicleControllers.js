@@ -56,8 +56,38 @@ const newVehicle = async (req, res) => {
     }
 
 }
+// update room details   =>   /api/rooms/:id
+const updateVehicle = async (req, res) => {
+    try{
+        let vehicle = await Vehicle.findById(req.query.id);
+        console.log(vehicle);
+
+        if(!vehicle){
+            return res.status(404).json({
+                success: false,
+                room: 'vehicle not found with this ID'
+            })
+        }
+        vehicle = await Vehicle.findByIdAndUpdate(req.query.id, req.body, {
+            new: true,
+            runValidators: true,
+            useFindAndModify: false
+        })
+        res.status(200).json({
+            success: true,
+            vehicle
+        })
+    } catch {
+        res.status(400).json({
+            success: false,
+            error: error
+        })
+    }
+
+}
 export {
     allVehicles,
     newVehicle,
-    getSingleVehicle
+    getSingleVehicle,
+    updateVehicle
 } 
