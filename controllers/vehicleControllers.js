@@ -85,9 +85,33 @@ const updateVehicle = async (req, res) => {
     }
 
 }
+const deleteVehicle = async (req, res) => {
+    try{
+        let vehicle = await Vehicle.findById(req.query.id);
+
+        if(!vehicle){
+            return res.status(404).json({
+                success: false,
+                vehicle: 'vehicle not found with this ID'
+            })
+        }
+        await vehicle.remove();
+        res.status(200).json({
+            success: true,
+            message: 'vehicle is deleted.'
+        })
+    } catch {
+        res.status(400).json({
+            success: false,
+            error: error
+        })
+    }
+
+}
 export {
     allVehicles,
     newVehicle,
     getSingleVehicle,
-    updateVehicle
+    updateVehicle,
+    deleteVehicle
 } 
