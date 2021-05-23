@@ -1,7 +1,8 @@
 import Vehicle from '../models/vehicle';
+import ErrorHandler from '../utils/errorHandler';
 
 // fetch all vehicles   =>   /api/rooms
-const allVehicles = async (req, res) => {
+const allVehicles = async (req, res, next) => {
     try {
         const vehicles = await Vehicle.find();
         res.status(200).json({
@@ -18,14 +19,15 @@ const allVehicles = async (req, res) => {
 
 }
 // get vehicle details   =>   /api/vehicles/:id
-const getSingleVehicle = async (req, res) => {
+const getSingleVehicle = async (req, res, next) => {
     try{
         const vehicle = await Vehicle.findById(req.query.id);
         if(!vehicle){
-            return res.status(404).json({
-                success: false,
-                room: 'vehicle not found with this ID'
-            })
+            return next(new ErrorHandler('vehicle not found with this ID'))
+            // res.status(404).json({
+            //     success: false,
+            //     room: 'vehicle not found with this ID'
+            // })
         }
         res.status(200).json({
             success: true,
@@ -40,7 +42,7 @@ const getSingleVehicle = async (req, res) => {
     }
 }
 // Create new vehicle   =>   /api/vehicles
-const newVehicle = async (req, res) => {
+const newVehicle = async (req, res, next) => {
     try{
         const room = await Vehicle.create(req.body);
 
@@ -57,16 +59,18 @@ const newVehicle = async (req, res) => {
 
 }
 // update room details   =>   /api/rooms/:id
-const updateVehicle = async (req, res) => {
+const updateVehicle = async (req, res, next) => {
     try{
         let vehicle = await Vehicle.findById(req.query.id);
         console.log(vehicle);
 
         if(!vehicle){
-            return res.status(404).json({
-                success: false,
-                room: 'vehicle not found with this ID'
-            })
+            return next(new ErrorHandler('vehicle not found with this ID'))
+            
+            // res.status(404).json({
+            //     success: false,
+            //     room: 'vehicle not found with this ID'
+            // })
         }
         vehicle = await Vehicle.findByIdAndUpdate(req.query.id, req.body, {
             new: true,
@@ -85,15 +89,17 @@ const updateVehicle = async (req, res) => {
     }
 
 }
-const deleteVehicle = async (req, res) => {
+const deleteVehicle = async (req, res, next) => {
     try{
         let vehicle = await Vehicle.findById(req.query.id);
 
         if(!vehicle){
-            return res.status(404).json({
-                success: false,
-                vehicle: 'vehicle not found with this ID'
-            })
+            return next(new ErrorHandler('vehicle not found with this ID'))
+            
+            // res.status(404).json({
+            //     success: false,
+            //     vehicle: 'vehicle not found with this ID'
+            // })
         }
         await vehicle.remove();
         res.status(200).json({
