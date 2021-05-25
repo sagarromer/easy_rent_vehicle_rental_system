@@ -14,6 +14,17 @@ class APIFeatures {
         this.query = this.query.find({ ...vehicleNumber })
         return this;
     }
+    filter() {
+
+        const queryCopy = { ...this.queryStr };
+
+        // Remove fields from query
+        const removeFields = ['vehicleNumber', 'page'];
+        removeFields.forEach(el => delete queryCopy[el]);
+
+        this.query = this.query.find(queryCopy);
+        return this;
+    }
 
 }
 
