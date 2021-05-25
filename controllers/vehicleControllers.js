@@ -5,12 +5,20 @@ import APIFeatures from '../utils/apiFeatures';
 
 // fetch all vehicles   =>   /api/rooms
 const allVehicles = catchAsyncErrors( async (req, res, next) => {
-    const apiFeatures = new APIFeatures(Vehicle.find(),req.query).search();
-    const vehicles = await APIFeatures.query;
+    const resPerPage = 4;
+    const vehiclesCount = await Vehicle.countDocuments();
+    const apiFeatures = new APIFeatures(Vehicle.find(),req.query).search().filter();
+    let vehicles = await APIFeatures.query;
+    let filteredVehiclesCount = vehicles.length;
+    apiFeatures.pagination(resPerPage);
+    vehicles = await APIFeatures.query;
     res.status(200).json({
         success: true,
-        count: vehicles.length,
-        vehicles
+        vehicles,
+        vehiclesCount,
+        resPerPage,
+        filteredVehiclesCount
+
     })
 
 });
