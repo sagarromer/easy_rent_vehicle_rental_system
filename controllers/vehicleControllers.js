@@ -1,10 +1,12 @@
 import Vehicle from '../models/vehicle';
 import ErrorHandler from '../utils/errorHandler';
 import catchAsyncErrors from '../middlewares/catchAsyncErrors';
+import APIFeatures from '../utils/apiFeatures';
 
 // fetch all vehicles   =>   /api/rooms
 const allVehicles = catchAsyncErrors( async (req, res, next) => {
-    const vehicles = await Vehicle.find();
+    const apiFeatures = new APIFeatures(Vehicle.find(),req.query).search();
+    const vehicles = await APIFeatures.query;
     res.status(200).json({
         success: true,
         count: vehicles.length,
