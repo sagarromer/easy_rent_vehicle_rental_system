@@ -5,7 +5,7 @@ class APIFeatures {
     }
 
     search() {
-        const location = this.queryStr.vehicleNumber ? {
+        const vehicleNumber = this.queryStr.vehicleNumber ? {
             vehicleNumber: {
                 $regex: this.queryStr.vehicleNumber,
                 $options: 'i'

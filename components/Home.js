@@ -1,6 +1,10 @@
 import React from 'react'
+import { useSelector } from 'react-redux'
 
 const Home = () => {
+    const { vehicles } = useSelector(state => state.allVehicles);
+    console.log(vehicles);
+
     return (
         <section id="vehicles" className="container mt-5">
 

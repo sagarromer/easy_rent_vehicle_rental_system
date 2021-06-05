@@ -3,7 +3,7 @@ import {
     ALL_VEHICLES_FAIL,
     CLEAR_ERRORS
 
-} from '../constants/roomConstants'
+} from '../constants/vehicleConstants'
 
 
 // All rooms reducer
