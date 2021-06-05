@@ -4,11 +4,15 @@ import Link from 'next/link'
 
 import VehicleItem from './vehicle/VehicleItem'
 import { useSelector } from 'react-redux'
+import { toast } from 'react-toastify'
 
 const Home = () => {
     const { vehicles } = useSelector(state => state.allVehicles);
     console.log(vehicles);
+    useEffect(() => {
+        toast.success('this is a success message');
 
+    }, [])
     return (
         <section id="vehicles" className="container mt-5">
 
