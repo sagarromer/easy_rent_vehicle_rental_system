@@ -1,9 +1,10 @@
 import { combineReducers } from 'redux';
-import { allVehiclesReducer } from './vehicleReducers';
+import { allVehiclesReducer, vehicleDetailsReducer } from './vehicleReducers';
 
 
 const reducer = combineReducers({
-    allVehicles: allVehiclesReducer
+    allVehicles: allVehiclesReducer,
+    vehicleDetails: vehicleDetailsReducer
 })
 
 export default reducer 
