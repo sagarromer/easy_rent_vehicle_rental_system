@@ -3,6 +3,8 @@ import { useRouter } from 'next/router'
 import Head from 'next/head'
 import Image from 'next/image'
 
+import VehicleFeatures from './VehicleFeatures'
+
 import { Carousel } from 'react-bootstrap'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -67,6 +69,8 @@ const VehicleDetails = () => {
                     <div className="col-12 col-md-6 col-lg-8">
                         <h3>Description</h3>
                         <p>{vehicle.description}</p>
+                        <VehicleFeatures vehicle={vehicle} />
+
                     </div>
 
                     <div className="col-12 col-md-6 col-lg-4">
