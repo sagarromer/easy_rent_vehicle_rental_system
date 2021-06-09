@@ -11,12 +11,12 @@ import {
 } from '../constants/vehicleConstants'
 
 // Get all vehicles
-export const getVehicles = (req, currentPage = 1) => async (dispatch) => {
+export const getVehicles = (req, currentPage = 1,vehicleNumber='') => async (dispatch) => {
     try {
 
         const { origin } = absoluteUrl(req);
 
-        const { data } = await axios.get(`${origin}/api/vehicles?page=${currentPage}`)
+        const { data } = await axios.get(`${origin}/api/vehicles?page=${currentPage}&vehicleNumber=${vehicleNumber}`)
 
         dispatch({
             type: ALL_VEHICLES_SUCCESS,
