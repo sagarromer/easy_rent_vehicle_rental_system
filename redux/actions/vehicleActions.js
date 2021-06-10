@@ -11,12 +11,17 @@ import {
 } from '../constants/vehicleConstants'
 
 // Get all vehicles
-export const getVehicles = (req, currentPage = 1,vehicleNumber='') => async (dispatch) => {
+export const getVehicles = (req, currentPage = 1,vehicleNumber='',passengers,category) => async (dispatch) => {
     try {
 
         const { origin } = absoluteUrl(req);
+        let link = `${origin}/api/vehicles?page=${currentPage}&vehicleNumber=${vehicleNumber}`
 
-        const { data } = await axios.get(`${origin}/api/vehicles?page=${currentPage}&vehicleNumber=${vehicleNumber}`)
+        if (passengers) link = link.concat(`&guestCapacity=${passengers}`)
+        if (category) link = link.concat(`&category=${category}`)
+
+        // const { data } = await axios.get(`${origin}/api/vehicles?page=${currentPage}&vehicleNumber=${vehicleNumber}`)
+        const { data } = await axios.get(link)
 
         dispatch({
             type: ALL_VEHICLES_SUCCESS,
@@ -48,7 +53,7 @@ export const getVehicleDetails = (req, id) => async (dispatch) => {
 
         dispatch({
             type: VEHICLE_DETAILS_SUCCESS,
-            payload: data.room
+            payload: data.vehicle
         })
 
     } catch (error) {
