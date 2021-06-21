@@ -4,10 +4,13 @@ import Link from 'next/link'
 import Pagination from 'react-js-pagination'
 
 import VehicleItem from './vehicle/VehicleItem'
-import { useSelector } from 'react-redux'
+import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify'
+import { clearErrors } from '../redux/actions/vehicleActions'
 
 const Home = () => {
+    const dispatch = useDispatch()
+
     const router = useRouter()
     const { vehicles, resPerPage, vehiclesCount, filteredVehiclesCount, error } = useSelector(state => state.allVehicles);
     
@@ -15,7 +18,8 @@ const Home = () => {
     let { location, page = 1 } = router.query;
     page = Number(page)
     useEffect(() => {
-        toast.success('this is a success message');
+        toast.error(error)
+        dispatch(clearErrors())
 
     }, [])
     const handlePagination = (pageNumber) => {
