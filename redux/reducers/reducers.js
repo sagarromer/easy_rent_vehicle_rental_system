@@ -1,6 +1,6 @@
 import { combineReducers } from 'redux';
 import { allVehiclesReducer, vehicleDetailsReducer } from './vehicleReducers';
-import { authReducer, loadedUserReducer, userReducer } from './userReducers';
+import { authReducer, loadedUserReducer, userReducer, forgotPasswordReducer } from './userReducers';
 
 
 const reducer = combineReducers({
@@ -8,7 +8,8 @@ const reducer = combineReducers({
     vehicleDetails: vehicleDetailsReducer,
     auth: authReducer,
     loadedUser: loadedUserReducer,
-    user: userReducer
+    user: userReducer,
+    forgotPassword: forgotPasswordReducer
 
 })
 
