@@ -5,6 +5,9 @@ import Image from 'next/image'
 
 import VehicleFeatures from './VehicleFeatures'
 
+import DatePicker from 'react-datepicker'
+import "react-datepicker/dist/react-datepicker.css";
+
 import { Carousel } from 'react-bootstrap'
 
 import { useDispatch, useSelector } from 'react-redux'
@@ -13,13 +16,33 @@ import { clearErrors } from '../../redux/actions/vehicleActions'
 
 
 const VehicleDetails = () => {
-
+    const [startDate, setStartDate] = useState()
+    const [endDate, setEndDate] = useState()
     const dispatch = useDispatch()
     const router = useRouter();
 
     const { vehicle, error } = useSelector(state => state.vehicleDetails);
 
+    const onChange = (dates) => {
+        const [startDate, endDate] = dates;
 
+        setStartDate(startDate)
+        setEndDate(endDate)
+
+        if (startDate && endDate) {
+
+            // Calclate days of stay
+
+            const days = Math.floor(((new Date(endDate) - new Date(startDate)) / 86400000) + 1)
+
+            setDaysOfStay(days)
+
+
+            dispatch(checkBooking(id, startDate.toISOString(), endDate.toISOString()))
+
+        }
+
+    }
     useEffect(() => {
 
         toast.error(error)
@@ -82,6 +105,17 @@ const VehicleDetails = () => {
                             <p className="mt-5 mb-3">
                                 Pick Date Range for renting
                             </p>
+                            <DatePicker
+                                className='w-100'
+                                selected={startDate}
+                                onChange={onChange}
+                                startDate={startDate}
+                                endDate={endDate}
+                                minDate={new Date()}
+                                excludeDates={excludedDates}
+                                selectsRange
+                                inline
+                            />
                         </div>
                     </div>
                 </div>
