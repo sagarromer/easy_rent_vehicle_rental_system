@@ -43,6 +43,39 @@ const VehicleDetails = () => {
         }
 
     }
+    const newBookingHandler = async () => {
+
+        const bookingData = {
+            room: router.query.id,
+            startDate,
+            endDate,
+            daysOfStay,
+            amountPaid: 90,
+            paymentInfo: {
+                id: 'STRIPE_PAYMENT_ID',
+                status: 'STRIPE_PAYMENT_STATUS'
+            }
+        }
+
+        try {
+
+            const config = {
+                headers: {
+                    'Content-Type': 'application/json'
+                }
+            }
+
+            const { data } = await axios.post('/api/bookings', bookingData, config)
+
+            console.log(data);
+
+        } catch (error) {
+
+            console.log(error.response);
+
+        }
+
+    }
     useEffect(() => {
 
         toast.error(error)
@@ -58,7 +91,7 @@ const VehicleDetails = () => {
     return (
         <>
             <Head>
-                <title>{vehicle.name} - BookIT</title>
+                <title>{vehicle.name} - Easy_Rent</title>
             </Head>
 
             <div className="container container-fluid">
@@ -116,6 +149,8 @@ const VehicleDetails = () => {
                                 selectsRange
                                 inline
                             />
+                            <button className="btn btn-block py-3 booking-btn"
+                            onClick={newBookingHandler}>pay</button>
                         </div>
                     </div>
                 </div>
