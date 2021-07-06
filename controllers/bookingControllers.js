@@ -39,7 +39,7 @@ const newBooking = catchAsyncErrors(async (req, res) => {
 })
 
 // Create new booking   =>   /api/bookings/check
-const checkRoomBookingAvailability = catchAsyncErrors(async (req, res) => {
+const checkVehicleBookingAvailability = catchAsyncErrors(async (req, res) => {
 
     let { roomId, startDate, endDate } = req.query;
 
@@ -73,3 +73,8 @@ const checkRoomBookingAvailability = catchAsyncErrors(async (req, res) => {
         isAvailable
     })
 })
+
+export {
+    newBooking,
+    checkVehicleBookingAvailability,
+} 
