@@ -18,10 +18,14 @@ import { clearErrors } from '../../redux/actions/vehicleActions'
 const VehicleDetails = () => {
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
+    const [daysOfRent, setDaysOfrent] = useState()
+    const [paymentLoading, setPaymentLoading] = useState(false)
     const dispatch = useDispatch()
     const router = useRouter();
-
+    const { dates } = useSelector(state => state.bookedDates);
+    const { user } = useSelector(state => state.loadedUser);
     const { vehicle, error } = useSelector(state => state.vehicleDetails);
+    const { available, loading: bookingLoading } = useSelector(state => state.checkBooking);
 
     const onChange = (dates) => {
         const [startDate, endDate] = dates;
@@ -149,6 +153,17 @@ const VehicleDetails = () => {
                                 selectsRange
                                 inline
                             />
+                            {available === true &&
+                                <div className="alert alert-success my-3 font-weight-bold">Vehicle is available. Book now.</div>
+                            }
+
+                            {available === false &&
+                                <div className="alert alert-danger my-3 font-weight-bold">Vehicle not available. Try different dates.</div>
+                            }
+
+                            {available && !user &&
+                                <div className="alert alert-danger my-3 font-weight-bold">Login to book Vehicle.</div>
+                            }
                             <button className="btn btn-block py-3 booking-btn"
                             onClick={newBookingHandler}>pay</button>
                         </div>
