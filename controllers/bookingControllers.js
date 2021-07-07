@@ -73,8 +73,35 @@ const checkVehicleBookingAvailability = catchAsyncErrors(async (req, res) => {
         isAvailable
     })
 })
+// Check booked dates of a room   =>   /api/bookings/check_booked_dates
+const checkBookedDatesOfVehicle = catchAsyncErrors(async (req, res) => {
 
+    const { roomId } = req.query;
+
+    const bookings = await Booking.find({ room: roomId });
+
+    let bookedDates = [];
+
+    const timeDiffernece = moment().utcOffset() / 60;
+
+    bookings.forEach(booking => {
+
+        const startDate = moment(booking.startDate).add(timeDiffernece, 'hours')
+        const endDate = moment(booking.endDate).add(timeDiffernece, 'hours')
+
+        const range = moment.range(moment(startDate), moment(endDate));
+
+        const dates = Array.from(range.by('day'));
+        bookedDates = bookedDates.concat(dates);
+    })
+
+    res.status(200).json({
+        success: true,
+        bookedDates
+    })
+})
 export {
     newBooking,
     checkVehicleBookingAvailability,
+    checkBookedDatesOfVehicle
 } 
