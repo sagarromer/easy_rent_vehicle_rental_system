@@ -14,11 +14,13 @@ import { useDispatch, useSelector } from 'react-redux'
 import { toast } from 'react-toastify';
 import { clearErrors } from '../../redux/actions/vehicleActions'
 
+import { checkBooking, getBookedDates } from '../../redux/actions/bookingActions'
+import { CHECK_BOOKING_RESET } from '../../redux/constants/bookingConstants'
 
 const VehicleDetails = () => {
     const [startDate, setStartDate] = useState()
     const [endDate, setEndDate] = useState()
-    const [daysOfRent, setDaysOfrent] = useState()
+    const [daysOfRent, setDaysOfRent] = useState()
     const [paymentLoading, setPaymentLoading] = useState(false)
     const dispatch = useDispatch()
     const router = useRouter();
@@ -26,7 +28,10 @@ const VehicleDetails = () => {
     const { user } = useSelector(state => state.loadedUser);
     const { vehicle, error } = useSelector(state => state.vehicleDetails);
     const { available, loading: bookingLoading } = useSelector(state => state.checkBooking);
-
+    const excludedDates = []
+    dates.forEach(date => {
+        excludedDates.push(new Date(date))
+    })
     const onChange = (dates) => {
         const [startDate, endDate] = dates;
 
@@ -47,6 +52,8 @@ const VehicleDetails = () => {
         }
 
     }
+    const { id } = router.query;
+
     const newBookingHandler = async () => {
 
         const bookingData = {
@@ -81,6 +88,7 @@ const VehicleDetails = () => {
 
     }
     useEffect(() => {
+        dispatch(getBookedDates(id))
 
         toast.error(error)
         dispatch(clearErrors())
@@ -89,7 +97,7 @@ const VehicleDetails = () => {
             dispatch({ type: CHECK_BOOKING_RESET })
         }
 
-    }, [dispatch,error])
+    }, [dispatch,error,id])
 
 
     return (

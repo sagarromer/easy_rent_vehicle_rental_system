@@ -1,7 +1,7 @@
 import { combineReducers } from 'redux';
 import { allVehiclesReducer, vehicleDetailsReducer } from './vehicleReducers';
 import { authReducer, loadedUserReducer, userReducer, forgotPasswordReducer } from './userReducers';
-import { checkBookingReducer } from './bookingReducers'
+import { checkBookingReducer, bookedDatesReducer } from './bookingReducers'
 
 
 const reducer = combineReducers({
@@ -12,6 +12,7 @@ const reducer = combineReducers({
     user: userReducer,
     forgotPassword: forgotPasswordReducer,
     checkBooking: checkBookingReducer,
+    bookedDates: bookedDatesReducer
 
 })
 
