@@ -13,7 +13,8 @@ const reducer = combineReducers({
     forgotPassword: forgotPasswordReducer,
     checkBooking: checkBookingReducer,
     bookedDates: bookedDatesReducer,
-    bookings: bookingsReducer
+    bookings: bookingsReducer,
+    bookingDetails: bookingDetailsReducer
 
 })
 
