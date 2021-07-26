@@ -3,6 +3,11 @@ module.exports = {
     DB_LOCAL_URI: 'mongodb://localhost:27017/easy_rent',
     DB_URI: 'mongodb://localhost:27017/easy_rent',
 
+    STRIPE_API_KEY: '',
+    STRIPE_SECRET_KEY: '',
+
+    STRIPE_WEBHOOK_SECRET: '',
+    
     CLOUDINARY_CLOUD_NAME: 'sega-soft',
     CLOUDINARY_API_KEY: '',
     CLOUDINARY_API_SECRET: '',
