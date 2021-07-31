@@ -4,6 +4,7 @@ import Head from 'next/head'
 import Image from 'next/image'
 
 import VehicleFeatures from './VehicleFeatures'
+import NewReview from '../review/NewReview'
 
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
@@ -225,6 +226,7 @@ const VehicleDetails = () => {
 
 
             </div>
+            <NewReview />
         </>
     )
 }
