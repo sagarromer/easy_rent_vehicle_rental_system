@@ -5,6 +5,7 @@ import Image from 'next/image'
 
 import VehicleFeatures from './VehicleFeatures'
 import NewReview from '../review/NewReview'
+import ListReviews from '../review/ListReviews'
 
 import DatePicker from 'react-datepicker'
 import "react-datepicker/dist/react-datepicker.css";
@@ -227,6 +228,11 @@ const VehicleDetails = () => {
 
             </div>
             <NewReview />
+            {vehicle.reviews && vehicle.reviews.length > 0 ?
+                    <ListReviews reviews={vehicle.reviews} />
+                    :
+                    <p><b>No Reviews on this vehicle</b></p>
+                }
         </>
     )
 }
