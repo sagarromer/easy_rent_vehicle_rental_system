@@ -117,11 +117,30 @@ const createVehicleReview = catchAsyncErrors(async (req, res) => {
     })
 
 })
+// Check Review Availability   =>   /api/reviews/check_review_availability
+const checkReviewAvailability = catchAsyncErrors(async (req, res) => {
+
+    const { vehicleId } = req.query;
+
+    const bookings = await Booking.find({ user: req.user._id, vehicle: vehicleId })
+
+    let isReviewAvailable = false;
+    if (bookings.length > 0) isReviewAvailable = true
+
+
+    res.status(200).json({
+        success: true,
+        isReviewAvailable
+    })
+
+})
 export {
     allVehicles,
     newVehicle,
     getSingleVehicle,
     updateVehicle,
     deleteVehicle,
-    createVehicleReview
+    createVehicleReview,
+    checkReviewAvailability,
+
 } 

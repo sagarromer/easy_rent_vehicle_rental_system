@@ -9,6 +9,9 @@ import {
     NEW_REVIEW_REQUEST,
     NEW_REVIEW_SUCCESS,
     NEW_REVIEW_FAIL,
+    REVIEW_AVAILABILITY_REQUEST,
+    REVIEW_AVAILABILITY_SUCCESS,
+    REVIEW_AVAILABILITY_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/vehicleConstants'
@@ -87,6 +90,25 @@ export const newReview = (reviewData) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: NEW_REVIEW_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const checkReviewAvailability = (vehicleId) => async (dispatch) => {
+    try {
+
+        dispatch({ type: REVIEW_AVAILABILITY_REQUEST })
+
+        const { data } = await axios.get(`/api/reviews/check_review_availability?vehicleId=${vehicleId}`)
+
+        dispatch({
+            type: REVIEW_AVAILABILITY_SUCCESS,
+            payload: data.isReviewAvailable
+        })
+
+    } catch (error) {
+        dispatch({
+            type: REVIEW_AVAILABILITY_FAIL,
             payload: error.response.data.message
         })
     }
