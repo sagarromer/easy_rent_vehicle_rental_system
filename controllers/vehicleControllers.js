@@ -134,6 +134,17 @@ const checkReviewAvailability = catchAsyncErrors(async (req, res) => {
     })
 
 })
+// Get all vehicles - ADMIN   =>   /api/admin/vehicles
+const allAdminVehicles = catchAsyncErrors(async (req, res) => {
+
+    const vehicles = await Vehicle.find();
+
+    res.status(200).json({
+        success: true,
+        vehicles
+    })
+
+})
 export {
     allVehicles,
     newVehicle,
@@ -142,5 +153,6 @@ export {
     deleteVehicle,
     createVehicleReview,
     checkReviewAvailability,
+    allAdminVehicles
 
 } 

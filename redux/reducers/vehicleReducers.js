@@ -10,6 +10,9 @@ import {
     REVIEW_AVAILABILITY_REQUEST,
     REVIEW_AVAILABILITY_SUCCESS,
     REVIEW_AVAILABILITY_FAIL,
+    ADMIN_VEHICLES_REQUEST,
+    ADMIN_VEHICLES_SUCCESS,
+    ADMIN_VEHICLES_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/vehicleConstants'
@@ -18,7 +21,10 @@ import {
 // All vehicles reducer
 export const allVehiclesReducer = (state = { vehicles: [] }, action) => {
     switch (action.type) {
-
+        case ADMIN_VEHICLES_REQUEST:
+            return {
+                loading: true,
+            }
         case ALL_VEHICLES_SUCCESS:
             return {
                 vehiclesCount: action.payload.vehiclesCount,
@@ -26,12 +32,21 @@ export const allVehiclesReducer = (state = { vehicles: [] }, action) => {
                 filteredVehiclesCount: action.payload.filteredVehiclesCount,
                 vehicles: action.payload.vehicles
             }
-
+        case ADMIN_VEHICLES_SUCCESS:
+            return {
+                loading: false,
+                rooms: action.payload
+            }
         case ALL_VEHICLES_FAIL:
+        case ADMIN_VEHICLES_FAIL:
             return {
                 error: action.payload
             }
-
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
         default:
             return state
     }

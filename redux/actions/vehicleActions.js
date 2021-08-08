@@ -12,6 +12,9 @@ import {
     REVIEW_AVAILABILITY_REQUEST,
     REVIEW_AVAILABILITY_SUCCESS,
     REVIEW_AVAILABILITY_FAIL,
+    ADMIN_VEHICLES_REQUEST,
+    ADMIN_VEHICLES_SUCCESS,
+    ADMIN_VEHICLES_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/vehicleConstants'
@@ -109,6 +112,29 @@ export const checkReviewAvailability = (vehicleId) => async (dispatch) => {
     } catch (error) {
         dispatch({
             type: REVIEW_AVAILABILITY_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+// Get all vehicles - ADMIN
+export const getAdminVehicles = () => async (dispatch) => {
+    try {
+
+        dispatch({ type: ADMIN_VEHICLES_REQUEST })
+
+        const { data } = await axios.get(`/api/admin/vehicles`)
+
+        dispatch({
+            type: ADMIN_VEHICLES_SUCCESS,
+            payload: data.vehicles
+        })
+
+    } catch (error) {
+
+        console.log(error);
+
+        dispatch({
+            type: ADMIN_VEHICLES_FAIL,
             payload: error.response.data.message
         })
     }
