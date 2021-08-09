@@ -1,4 +1,7 @@
 import Vehicle from '../models/vehicle';
+import Booking from '../models/booking'
+
+import cloudinary from 'cloudinary'
 import ErrorHandler from '../utils/errorHandler';
 import catchAsyncErrors from '../middlewares/catchAsyncErrors';
 import APIFeatures from '../utils/apiFeatures';
@@ -35,7 +38,25 @@ const getSingleVehicle = catchAsyncErrors( async (req, res, next) => {
 });
 // Create new vehicle   =>   /api/vehicles
 const newVehicle = catchAsyncErrors( async (req, res, next) => {
-    
+    const images = req.body.images;
+
+    let imagesLinks = [];
+
+    for (let i = 0; i < images.length; i++) {
+
+        const result = await cloudinary.v2.uploader.upload(images[i], {
+            folder: 'bookit/vehicles',
+        });
+
+        imagesLinks.push({
+            public_id: result.public_id,
+            url: result.secure_url
+        })
+
+    }
+
+    req.body.images = imagesLinks;
+    req.body.user = req.user._id;
         const vehicle = await Vehicle.create(req.body);
 
         res.status(200).json({

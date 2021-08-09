@@ -1,12 +1,14 @@
 import { combineReducers } from 'redux';
 import { allVehiclesReducer, vehicleDetailsReducer, 
-    newReviewReducer,checkReviewReducer } from './vehicleReducers';
+    newReviewReducer,checkReviewReducer 
+, newVehicleReducer} from './vehicleReducers';
 import { authReducer, loadedUserReducer, userReducer, forgotPasswordReducer } from './userReducers';
 import { checkBookingReducer, bookedDatesReducer, bookingsReducer } from './bookingReducers'
 
 
 const reducer = combineReducers({
     allVehicles: allVehiclesReducer,
+    newVehicle: newVehicleReducer,
     vehicleDetails: vehicleDetailsReducer,
     auth: authReducer,
     loadedUser: loadedUserReducer,
