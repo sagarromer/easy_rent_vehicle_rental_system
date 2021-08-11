@@ -8,6 +8,8 @@ dbConnect();
 
 
 handler.get(allVehicles);
-handler.post(newVehicle);
+handler
+.use(isAuthenticated, authorizeRoles('admin'))
+.post(newVehicle);
 
 export default handler; 
