@@ -21,6 +21,10 @@ import {
     UPDATE_VEHICLE_SUCCESS,
     UPDATE_VEHICLE_RESET,
     UPDATE_VEHICLE_FAIL,
+    DELETE_VEHICLE_REQUEST,
+    DELETE_VEHICLE_SUCCESS,
+    DELETE_VEHICLE_RESET,
+    DELETE_VEHICLE_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/vehicleConstants'
@@ -146,7 +150,7 @@ export const checkReviewReducer = (state = { reviewAvailable: null }, action) =>
             return state
     }
 } 
-export const newRoomReducer = (state = { vehicle: {} }, action) => {
+export const newVehicleReducer = (state = { vehicle: {} }, action) => {
     switch (action.type) {
         case NEW_VEHICLE_REQUEST:
             return {
@@ -184,7 +188,7 @@ export const newRoomReducer = (state = { vehicle: {} }, action) => {
 export const vehicleReducer = (state = {}, action) => {
     switch (action.type) {
         case UPDATE_VEHICLE_REQUEST:
-        //case DELETE_VEHICLE_REQUEST:
+        case DELETE_VEHICLE_REQUEST:
             return {
                 loading: true
             }
@@ -195,25 +199,25 @@ export const vehicleReducer = (state = {}, action) => {
                 isUpdated: action.payload
             }
 
-        // case DELETE_VEHICLE_SUCCESS:
-        //     return {
-        //         loading: false,
-        //         isDeleted: action.payload
-        //     }
+        case DELETE_VEHICLE_SUCCESS:
+            return {
+                loading: false,
+                isDeleted: action.payload
+            }
 
         case UPDATE_VEHICLE_RESET:
             return {
                 isUpdated: false
             }
 
-        // case DELETE_VEHICLE_RESET:
-        //     return {
-        //         loading: false,
-        //         isDeleted: false
-        //     }
+        case DELETE_VEHICLE_RESET:
+            return {
+                loading: false,
+                isDeleted: false
+            }
 
         case UPDATE_VEHICLE_FAIL:
-        //case DELETE_VEHICLE_FAIL:
+        case DELETE_VEHICLE_FAIL:
             return {
                 loading: false,
                 error: action.payload

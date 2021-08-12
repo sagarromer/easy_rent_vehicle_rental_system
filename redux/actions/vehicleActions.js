@@ -21,6 +21,9 @@ import {
     UPDATE_VEHICLE_REQUEST,
     UPDATE_VEHICLE_SUCCESS,
     UPDATE_VEHICLE_FAIL,
+    DELETE_VEHICLE_REQUEST,
+    DELETE_VEHICLE_SUCCESS,
+    DELETE_VEHICLE_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/vehicleConstants'
@@ -175,4 +178,23 @@ export const clearErrors = () => async (dispatch) => {
     dispatch({
         type: CLEAR_ERRORS
     })
+}
+export const deleteVehicle = (id) => async (dispatch) => {
+    try {
+
+        dispatch({ type: DELETE_VEHICLE_REQUEST })
+
+        const { data } = await axios.delete(`/api/vehicles/${id}`)
+
+        dispatch({
+            type: DELETE_VEHICLE_SUCCESS,
+            payload: data.success
+        })
+
+    } catch (error) {
+        dispatch({
+            type: DELETE_VEHICLE_FAIL,
+            payload: error.response.data.message
+        })
+    }
 }

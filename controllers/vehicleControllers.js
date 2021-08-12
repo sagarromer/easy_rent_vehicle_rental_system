@@ -77,6 +77,7 @@ const updateVehicle = catchAsyncErrors( async (req, res, next) => {
         for(let i =0;i < vehicle.images.length; i++){
             await cloudinary.v2.uploader.destroy(vehicle.images[i].public_id);
         }
+        let imagesLinks = [];
         for (let i = 0; i < images.length; i++) {
     
             const result = await cloudinary.v2.uploader.upload(images[i], {
@@ -107,6 +108,11 @@ const deleteVehicle = catchAsyncErrors( async (req, res, next) => {
         if(!vehicle){
             return next(new ErrorHandler('vehicle not found with this ID'))
         }
+        // Delete images associated with the room
+        for (let i = 0; i < vehicle.images.length; i++) {
+            await cloudinary.v2.uploader.destroy(vehicle.images[i].public_id)
+        }
+
         await vehicle.remove();
         res.status(200).json({
             success: true,
