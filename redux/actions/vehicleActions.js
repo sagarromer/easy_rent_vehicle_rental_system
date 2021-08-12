@@ -15,6 +15,12 @@ import {
     ADMIN_VEHICLES_REQUEST,
     ADMIN_VEHICLES_SUCCESS,
     ADMIN_VEHICLES_FAIL,
+    NEW_VEHICLE_REQUEST,
+    NEW_VEHICLE_SUCCESS,
+    NEW_VEHICLE_FAIL,
+    UPDATE_VEHICLE_REQUEST,
+    UPDATE_VEHICLE_SUCCESS,
+    UPDATE_VEHICLE_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/vehicleConstants'
@@ -135,6 +141,31 @@ export const getAdminVehicles = () => async (dispatch) => {
 
         dispatch({
             type: ADMIN_VEHICLES_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
+export const updateVehicle = (id, VehicleData) => async (dispatch) => {
+    try {
+
+        dispatch({ type: UPDATE_VEHICLE_REQUEST })
+
+        const config = {
+            header: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.put(`/api/Vehicles/${id}`, VehicleData, config)
+
+        dispatch({
+            type: UPDATE_VEHICLE_SUCCESS,
+            payload: data.success
+        })
+
+    } catch (error) {
+        dispatch({
+            type: UPDATE_VEHICLE_FAIL,
             payload: error.response.data.message
         })
     }

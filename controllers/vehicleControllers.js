@@ -74,6 +74,22 @@ const updateVehicle = catchAsyncErrors( async (req, res, next) => {
         if(!vehicle){
             return next(new ErrorHandler('vehicle not found with this ID'))
         }
+        for(let i =0;i < vehicle.images.length; i++){
+            await cloudinary.v2.uploader.destroy(vehicle.images[i].public_id);
+        }
+        for (let i = 0; i < images.length; i++) {
+    
+            const result = await cloudinary.v2.uploader.upload(images[i], {
+                folder: 'bookit/vehicles',
+            });
+    
+            imagesLinks.push({
+                public_id: result.public_id,
+                url: result.secure_url
+            })
+            req.body.images = imagesLinks
+    
+        } 
         vehicle = await Vehicle.findByIdAndUpdate(req.query.id, req.body, {
             new: true,
             runValidators: true,

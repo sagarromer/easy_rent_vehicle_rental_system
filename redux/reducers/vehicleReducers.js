@@ -17,6 +17,10 @@ import {
     NEW_VEHICLE_SUCCESS,
     NEW_VEHICLE_RESET,
     NEW_VEHICLE_FAIL,
+    UPDATE_VEHICLE_REQUEST,
+    UPDATE_VEHICLE_SUCCESS,
+    UPDATE_VEHICLE_RESET,
+    UPDATE_VEHICLE_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/vehicleConstants'
@@ -162,6 +166,54 @@ export const newRoomReducer = (state = { vehicle: {} }, action) => {
             }
 
         case NEW_VEHICLE_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+}
+export const vehicleReducer = (state = {}, action) => {
+    switch (action.type) {
+        case UPDATE_VEHICLE_REQUEST:
+        //case DELETE_VEHICLE_REQUEST:
+            return {
+                loading: true
+            }
+
+        case UPDATE_VEHICLE_SUCCESS:
+            return {
+                loading: false,
+                isUpdated: action.payload
+            }
+
+        // case DELETE_VEHICLE_SUCCESS:
+        //     return {
+        //         loading: false,
+        //         isDeleted: action.payload
+        //     }
+
+        case UPDATE_VEHICLE_RESET:
+            return {
+                isUpdated: false
+            }
+
+        // case DELETE_VEHICLE_RESET:
+        //     return {
+        //         loading: false,
+        //         isDeleted: false
+        //     }
+
+        case UPDATE_VEHICLE_FAIL:
+        //case DELETE_VEHICLE_FAIL:
             return {
                 loading: false,
                 error: action.payload
