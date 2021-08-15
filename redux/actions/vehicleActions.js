@@ -198,3 +198,28 @@ export const deleteVehicle = (id) => async (dispatch) => {
         })
     }
 }
+export const newVehicle = (vehicleData) => async (dispatch) => {
+    try {
+
+        dispatch({ type: NEW_VEHICLE_REQUEST })
+
+        const config = {
+            header: {
+                'Content-Type': 'application/json'
+            }
+        }
+
+        const { data } = await axios.post(`/api/vehicles`, vehicleData, config)
+
+        dispatch({
+            type: NEW_VEHICLE_SUCCESS,
+            payload: data
+        })
+
+    } catch (error) {
+        dispatch({
+            type: NEW_VEHICLE_FAIL,
+            payload: error.response.data.message
+        })
+    }
+}
