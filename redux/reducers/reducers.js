@@ -3,7 +3,8 @@ import { allVehiclesReducer, vehicleDetailsReducer,
     newReviewReducer,checkReviewReducer 
 , newVehicleReducer, vehicleReducer} from './vehicleReducers';
 import { authReducer, loadedUserReducer, userReducer, forgotPasswordReducer } from './userReducers';
-import { checkBookingReducer, bookedDatesReducer, bookingsReducer } from './bookingReducers'
+import { checkBookingReducer, bookedDatesReducer, bookingsReducer,
+    bookingReducer } from './bookingReducers'
 
 
 const reducer = combineReducers({
@@ -18,6 +19,7 @@ const reducer = combineReducers({
     checkBooking: checkBookingReducer,
     bookedDates: bookedDatesReducer,
     bookings: bookingsReducer,
+    booking: bookingReducer,
     bookingDetails: bookingDetailsReducer,
     newReview: newReviewReducer,
     checkReview: checkReviewReducer
