@@ -3,7 +3,7 @@ import { allVehiclesReducer, vehicleDetailsReducer,
     newReviewReducer,checkReviewReducer 
 , newVehicleReducer, vehicleReducer} from './vehicleReducers';
 import { authReducer, loadedUserReducer, userReducer, forgotPasswordReducer 
-,allUsersReducer} from './userReducers';
+,allUsersReducer,userDetailsReducer} from './userReducers';
 import { checkBookingReducer, bookedDatesReducer, bookingsReducer,
     bookingReducer } from './bookingReducers'
 
@@ -16,6 +16,7 @@ const reducer = combineReducers({
     auth: authReducer,
     loadedUser: loadedUserReducer,
     allUsers: allUsersReducer,
+    userDetails: userDetailsReducer,
     user: userReducer,
     forgotPassword: forgotPasswordReducer,
     checkBooking: checkBookingReducer,
