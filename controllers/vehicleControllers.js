@@ -108,7 +108,7 @@ const deleteVehicle = catchAsyncErrors( async (req, res, next) => {
         if(!vehicle){
             return next(new ErrorHandler('vehicle not found with this ID'))
         }
-        // Delete images associated with the room
+        // Delete images associated with the vehicle
         for (let i = 0; i < vehicle.images.length; i++) {
             await cloudinary.v2.uploader.destroy(vehicle.images[i].public_id)
         }
@@ -188,6 +188,45 @@ const allAdminVehicles = catchAsyncErrors(async (req, res) => {
     })
 
 })
+// Get all vehicle reviews - ADMIN   =>   /api/reviews
+const getVehicleReviews = catchAsyncErrors(async (req, res) => {
+
+    const vehicle = await Vehicle.findById(req.query.id);
+
+    res.status(200).json({
+        success: true,
+        reviews: vehicle.reviews
+    })
+
+})
+
+// Delete vehicle review - ADMIN   =>   /api/reviews
+const deleteReview = catchAsyncErrors(async (req, res) => {
+
+    const vehicle = await Vehicle.findById(req.query.vehicleId);
+
+    const reviews = vehicle.reviews.filter(review => review._id.toString() !== req.query.id.toString())
+
+    const numOfReviews = reviews.length;
+
+    const ratings = vehicle.reviews.reduce((acc, item) => item.rating + acc, 0) / reviews.length
+
+    await Vehicle.findByIdAndUpdate(req.query.vehicleId, {
+        reviews,
+        ratings,
+        numOfReviews
+    }, {
+        new: true,
+        runValidators: true,
+        useFindAndModify: false
+    })
+
+    res.status(200).json({
+        success: true
+    })
+
+})
+
 export {
     allVehicles,
     newVehicle,
@@ -196,6 +235,8 @@ export {
     deleteVehicle,
     createVehicleReview,
     checkReviewAvailability,
-    allAdminVehicles
+    allAdminVehicles,
+    getVehicleReviews,
+    deleteReview
 
 } 

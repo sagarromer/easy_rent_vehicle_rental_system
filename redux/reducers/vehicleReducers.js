@@ -25,6 +25,13 @@ import {
     DELETE_VEHICLE_SUCCESS,
     DELETE_VEHICLE_RESET,
     DELETE_VEHICLE_FAIL,
+    GET_REVIEWS_REQUEST,
+    GET_REVIEWS_SUCCESS,
+    GET_REVIEWS_FAIL,
+    DELETE_REVIEW_REQUEST,
+    DELETE_REVIEW_SUCCESS,
+    DELETE_REVIEW_RESET,
+    DELETE_REVIEW_FAIL,
     CLEAR_ERRORS
 
 } from '../constants/vehicleConstants'
@@ -218,6 +225,70 @@ export const vehicleReducer = (state = {}, action) => {
 
         case UPDATE_VEHICLE_FAIL:
         case DELETE_VEHICLE_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+}
+export const vehicleReviewsReducer = (state = { reviews: [] }, action) => {
+    switch (action.type) {
+        case GET_REVIEWS_REQUEST:
+            return {
+                loading: true
+            }
+
+        case GET_REVIEWS_SUCCESS:
+            return {
+                loading: false,
+                reviews: action.payload
+            }
+
+        case GET_REVIEWS_FAIL:
+            return {
+                loading: false,
+                error: action.payload
+            }
+
+        case CLEAR_ERRORS:
+            return {
+                ...state,
+                error: null
+            }
+
+        default:
+            return state
+    }
+}
+export const reviewReducer = (state = {}, action) => {
+    switch (action.type) {
+        case DELETE_REVIEW_REQUEST:
+            return {
+                loading: true
+            }
+
+        case DELETE_REVIEW_SUCCESS:
+            return {
+                loading: false,
+                isDeleted: action.payload
+            }
+
+        case DELETE_REVIEW_RESET:
+            return {
+                loading: false,
+                isDeleted: false
+            }
+
+        case DELETE_REVIEW_FAIL:
             return {
                 loading: false,
                 error: action.payload

@@ -15,13 +15,13 @@ handler
     .put(createVehicleReview)
 
 
-// handler
-//     .use(isAuthenticatedUser)
-//     .get(getVehicleReviews)
+handler
+    .use(isAuthenticatedUser)
+    .get(getVehicleReviews)
 
 
-// handler
-//     .use(isAuthenticatedUser)
-//     .delete(deleteReview)
+handler
+    .use(isAuthenticatedUser)
+    .delete(deleteReview)
 
 export default handler; 
