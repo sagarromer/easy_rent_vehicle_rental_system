@@ -1,5 +1,12 @@
 # easy_rent_vehicle_rental_system
-![easy_rent_vehicle_rental_system](/public/images/home_page.png)
+![easy_rent_vehicle_rental_system](/public/images/home_page.PNG)
+![easy_rent_vehicle_rental_system](/public/images/login.PNG)
+![easy_rent_vehicle_rental_system](/public/images/update_profile.png)
+![easy_rent_vehicle_rental_system](/public/images/vehicle_details.PNG)
+![easy_rent_vehicle_rental_system](/public/images/my_bookings.PNG)
+![easy_rent_vehicle_rental_system](/public/images/update_profile.PNG)
+![easy_rent_vehicle_rental_system](/public/images/admin_users.png)
+![easy_rent_vehicle_rental_system](/public/images/admin_reviews.png)
 
 ## Run Locally
 
