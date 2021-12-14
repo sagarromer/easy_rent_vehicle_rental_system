@@ -13,7 +13,7 @@ const Header = () => {
         if (!user) {
             dispatch(loadUser())
         }
-    }, [dispatch])
+    }, [dispatch,user])
     const logoutHandler = () => {
         signOut();
     }
