@@ -5,6 +5,7 @@ import { allVehiclesReducer, vehicleDetailsReducer,
 import { authReducer, loadedUserReducer, userReducer, forgotPasswordReducer 
 ,allUsersReducer,userDetailsReducer} from './userReducers';
 import { checkBookingReducer, bookedDatesReducer, bookingsReducer,
+    bookingDetailsReducer,
     bookingReducer } from './bookingReducers'
 
 

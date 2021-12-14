@@ -3,7 +3,7 @@ const mongoose = require('mongoose');
 
 const vehicles = require('../data/vehicles')
 
-mongoose.connect('mongodb://localhost:27017/easy_rent', {
+mongoose.connect('mongodb+srv://easy_rent:easyrent123456@cluster0.hk9vw.mongodb.net/easy_rent_vehicle_rentals?retryWrites=true&w=majority', {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     // useFindAndModify: false,

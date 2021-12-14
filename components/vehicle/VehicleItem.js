@@ -10,7 +10,7 @@ const VehicleItem = ({ vehicle }) => {
                     className="card-img-top mx-auto"
                     src={vehicle.images[0].url}
                     height={170}
-                    width=""
+                    width={100}
                     alt="vehicle"
                 />
                 <div className="card-body d-flex flex-column">
@@ -21,7 +21,7 @@ const VehicleItem = ({ vehicle }) => {
                     </h5>
 
                     <div className="ratings mt-auto mb-3">
-                        <p className="card-text"><b>${vehicle.pricePerNight}</b> / night</p>
+                        <p className="card-text"><b>${vehicle.pricePerDay}</b> / day</p>
 
                         <div className="rating-outer">
                             <div

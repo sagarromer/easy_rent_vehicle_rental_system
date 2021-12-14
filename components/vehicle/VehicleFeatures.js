@@ -19,7 +19,7 @@ const VehicleFeatures = ({ vehicle }) => {
                     className={vehicle.airbags ? 'fa fa-check text-success' : 'fa fa-times text-danger'}
                     aria-hidden="true"
                 ></i>
-                <p>Breakfast</p>
+                <p>Airbags</p>
             </div>
 
             <div className='vehicle-feature'>
@@ -43,7 +43,7 @@ const VehicleFeatures = ({ vehicle }) => {
                     className={vehicle.centralLocking ? 'fa fa-check text-success' : 'fa fa-times text-danger'}
                     aria-hidden="true"
                 ></i>
-                <p>Pets Allowed</p>
+                <p>Central Locking</p>
             </div>
 
             <div className='vehicle-feature'>

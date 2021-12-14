@@ -4,8 +4,8 @@ import { useRouter } from 'next/router'
 import { toast } from 'react-toastify'
 
 import { useDispatch, useSelector } from 'react-redux';
-import { newReview, checkReviewAvailability, clearErrors } from '../../redux/actions/roomActions'
-import { NEW_REVIEW_RESET } from '../../redux/constants/roomConstants'
+import { newReview, checkReviewAvailability, clearErrors } from '../../redux/actions/vehicleActions'
+import { NEW_REVIEW_RESET } from '../../redux/constants/vehicleConstants'
 
 const NewReview = () => {
 
@@ -35,14 +35,14 @@ const NewReview = () => {
             toast.success('Review is posted.')
             dispatch({ type: NEW_REVIEW_RESET })
 
-            router.push(`/room/${id}`)
+            router.push(`/vehicle/${id}`)
         }
 
     }, [dispatch, success, error, id])
 
     const submitHandler = () => {
         const reviewData = {
-            rating, comment, roomId: id
+            rating, comment, vehicleId: id
         }
 
         dispatch(newReview(reviewData))

@@ -268,5 +268,3 @@ export const deleteReview = (id, vehicleId) => async (dispatch) => {
         })
     }
 }
-
-

@@ -49,7 +49,7 @@ const VehicleDetails = () => {
 
             const days = Math.floor(((new Date(endDate) - new Date(startDate)) / 86400000) + 1)
 
-            setDaysOfStay(days)
+            setDaysOfRent(days)
 
 
             dispatch(checkBooking(id, startDate.toISOString(), endDate.toISOString()))
@@ -62,10 +62,10 @@ const VehicleDetails = () => {
     const newBookingHandler = async () => {
 
         const bookingData = {
-            room: router.query.id,
+            vehicle: router.query.id,
             startDate,
             endDate,
-            daysOfStay,
+            daysOfRent,
             amountPaid: 90,
             paymentInfo: {
                 id: 'STRIPE_PAYMENT_ID',
@@ -176,7 +176,7 @@ const VehicleDetails = () => {
 
                     <div className="col-12 col-md-6 col-lg-4">
                         <div className="booking-card shadow-lg p-4">
-                            <p className='price-per-night'><b>${vehicle.pricePerNight}</b> / night</p>
+                            <p className='price-per-night'><b>${vehicle.pricePerDay}</b> / day</p>
 
                             <hr />
 
@@ -211,7 +211,7 @@ const VehicleDetails = () => {
                                     onClick={() => bookVehicle(vehicle._id, vehicle.pricePerDay)}
                                     disabled={bookingLoading || paymentLoading ? true : false}
                                 >
-                                    Pay - ${daysOfRent * room.pricePerDay}
+                                    Pay - ${daysOfRent * vehicle.pricePerDay}
                                 </button>
                             }
 
@@ -221,10 +221,6 @@ const VehicleDetails = () => {
                         </div>
                     </div>
                 </div>
-
-
-
-
 
             </div>
             <NewReview />

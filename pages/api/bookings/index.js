@@ -4,7 +4,7 @@ import dbConnect from '../../../config/dbConnect'
 import { newBooking } from '../../../controllers/bookingControllers'
 
 import { isAuthenticatedUser } from '../../../middlewares/auth'
-import onError from '../../../middlewares/errors'
+import onError from '../../../middlewares/error'
 
 const handler = nc({ onError });
 

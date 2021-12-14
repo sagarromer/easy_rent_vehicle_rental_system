@@ -1,7 +1,7 @@
 import nc from 'next-connect'
 import dbConnect from '../../../config/dbConnect'
 
-import { checkReviewAvailability } from '../../../controllers/roomControllers'
+import { checkReviewAvailability } from '../../../controllers/vehicleControllers'
 
 import onError from '../../../middlewares/error'
 import { isAuthenticatedUser } from '../../../middlewares/auth'
