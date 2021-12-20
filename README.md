@@ -64,7 +64,7 @@ captured very quickly and easily.
 This system empowers the organization to make their services accessible to the public through the 
 web and furthermore keep records about their services.
 
-##Statement of the Problem
+## Statement of the Problem
 -The manual car rental system provides services only during office hours. So, customers have
 limited time to make any transactions or reservation of the cars. The problem with some of the 
 current system is that some small companies already have a car rental system which is not a web based 
@@ -84,7 +84,7 @@ newspaper. It involves a lot of paper work and consumes time.
 and there might be thousands of clients.
 * It is very hard to keep record of all rental cars and so on
 
-##Aim and Objectives
+## Aim and Objectives
 From the above-mentioned problems, the aim is to develop a computer-based information system 
 that will help to address the ongoing issues from the manual information system and help to 
 facilitate some tasks that seems to be difficult for both the car rental company’s staff and those 
