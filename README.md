@@ -99,6 +99,27 @@ book or reserve a vehicle online.
 history to help the organization keep track of transactions.
 * To implement geofencing and remote car deactivation upon expiration of rental period.
 
+## REQUIREMENTS ANALYSIS AND DESIGN
+# Tables
+
+| functional requirements  | non functional requirements |
+| ------------- |:-------------:|
+| A customer should be able to register with email address      | payments sghould be secure    |
+| A customer should be able to view the details of a particular vehicle | system should be easy to use     |
+| The system should show available cars to the customer during reservation      |    |
+# Entity relationship diagram
+
+![easy_rent_vehicle_rental_system](/public/images/erdiagram.png)
+# class diagram
+
+![easy_rent_vehicle_rental_system](/public/images/classdiagram.png)
+# usecase diagram 1
+
+![easy_rent_vehicle_rental_system](/public/images/usecase1.png)
+
+# class diagram 2
+
+![easy_rent_vehicle_rental_system](/public/images/usecase2.png)
 
 
 
